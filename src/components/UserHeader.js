@@ -1,13 +1,7 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
-import { fetchUser } from '../actions';
 
 function UserHeader(props) {
-
-    useEffect(() => {
-        props.fetchUser(props.userId);
-    }, [])
-
     return (
         <div>
             {props.user ? <h3>{props.user.name}</h3> : null}
@@ -23,4 +17,4 @@ const mapStateToProps = (state, ownProps) => { //ownprops is the props that are 
     }
 }
 
-export default connect(mapStateToProps, { fetchUser })(UserHeader);
+export default connect(mapStateToProps)(UserHeader);
