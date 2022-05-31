@@ -3,8 +3,14 @@ import _ from "lodash"
 
 export const fetchPostsAndUsers = () => async (dispatch, getState) => {
     await dispatch(fetchPosts())
+    //dispatching fetchUser for each unique userId
+    // _.uniq(_.map(getState().posts, 'userId')).forEach(id => dispatch(fetchUser(id)))  //this is the same as the line below
 
-    _.uniq(_.map(getState().posts, 'userId')).forEach(id => dispatch(fetchUser(id))) //dispatching fetchUser for each unique userId
+    _.chain(getState().posts)
+        .map('userId')
+        .uniq()
+        .forEach(id => dispatch(fetchUser(id)))
+        .value()
 }
 
 //action creator
