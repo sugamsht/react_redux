@@ -1,9 +1,13 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import LanguageContext from '../contexts/LanguageContext';
 
 function Field(props) {
+    const language = useContext(LanguageContext);
+    const text = language === 'English' ? 'Name' : 'नाम';
+
     return (
         <div className='flex flex-col p-5 '>
-            <label>Name</label>
+            <label>{text}</label>
             <input className='border-2 w-[30vw] h-[20vh] border-black' type="text" />
         </div >
     );
