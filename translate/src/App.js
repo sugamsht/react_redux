@@ -1,6 +1,7 @@
 import { useState } from "react";
 import UserCreate from "./components/UserCreate";
 import LanguageContext from "./contexts/LanguageContext";
+import ColorContext from "./contexts/ColorContext";
 
 function App() {
 
@@ -18,7 +19,9 @@ function App() {
           onClick={() => setLanguage('Nepali')} />
       </div>
       <LanguageContext.Provider value={language}>
-        <UserCreate />
+        <ColorContext.Provider value="red">
+          <UserCreate />
+        </ColorContext.Provider>
       </LanguageContext.Provider>
     </div>
   );
