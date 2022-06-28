@@ -11,7 +11,7 @@ export function LanguageStore({ children }) {
     }
 
     return (
-        <Context.Provider value={{ ...language, onLanguageChange }}>
+        <Context.Provider value={{ language, onLanguageChange: onLanguageChange }}>
             {children}
         </Context.Provider>
     );

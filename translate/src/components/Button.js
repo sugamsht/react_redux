@@ -9,9 +9,9 @@ function Button(props) {
 
     function renderButton(color) {
         return (
-            <button className={`ml-5 p-4 rounded-xl bg-${color}-500 text-white text-xl`}>
+            <button className={`ml-5 p-4 rounded-xl bg-${color} text-white text-xl`}>
                 <LanguageContext.Consumer>
-                    {(language) => {
+                    {({ language }) => {
                         return language === 'English' ? 'Submit' : 'पेश गर्नुहोस्';
                     }}
                 </LanguageContext.Consumer>

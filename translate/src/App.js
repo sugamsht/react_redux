@@ -1,25 +1,18 @@
-import { useState } from "react";
 import UserCreate from "./components/UserCreate";
-import LanguageContext from "./contexts/LanguageContext";
+import { LanguageStore } from "./contexts/LanguageContext";
 import ColorContext from "./contexts/ColorContext";
 import LanguageSelector from "./components/LanguageSelector";
 
 function App() {
 
-  const [language, setLanguage] = useState("English");
-
-  const onLanguageChange = (language) => {
-    setLanguage(language);
-  }
-
   return (
     <div className="w-screen h-screen ">
-      <LanguageSelector language={language} onLanguageChange={onLanguageChange} />
-      <LanguageContext.Provider value={language}>
-        <ColorContext.Provider value="red">
+      <LanguageStore>
+        <LanguageSelector />
+        <ColorContext.Provider value="red-500">
           <UserCreate />
         </ColorContext.Provider>
-      </LanguageContext.Provider>
+      </LanguageStore>
     </div>
   );
 }

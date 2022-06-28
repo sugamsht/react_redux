@@ -3,7 +3,7 @@ import LanguageContext from '../contexts/LanguageContext';
 
 function Field(props) {
     const language = useContext(LanguageContext);
-    const text = language === 'English' ? 'Name' : 'नाम';
+    const text = language.language === 'English' ? 'Name' : 'नाम';
 
     return (
         <div className='flex flex-col p-5 '>
